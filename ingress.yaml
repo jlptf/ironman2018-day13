@@ -1,0 +1,26 @@
+#####################################
+# 2018 ithome ironman
+# Author: James Lu
+# Topic: k8s 不自賞 - Day 13 Ingress 
+# Url: https://ithelp.ithome.com.tw/articles/10193528
+# Licence: MIT
+#####################################
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: web
+spec:
+  rules:
+  - host: green.myweb.com
+    http:
+      paths:
+      - backend:
+          serviceName: green-service
+          servicePort: 80
+  - host: red.myweb.com
+    http:
+      paths:
+      - backend:
+          serviceName: red-service
+          servicePort: 80
